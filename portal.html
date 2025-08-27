@@ -823,7 +823,7 @@
             const { data: { user } } = await supabase.auth.getUser();
             if (!user) {
                 // **FIXED:** Changed redirect to a relative path
-                window.location.href = 'login.html';
+                window.location.href = 'index.html';
                 return;
             }
             currentUser = user;
@@ -1018,7 +1018,7 @@
         document.querySelector('.logout-btn').addEventListener('click', async () => {
             await supabase.auth.signOut();
             // **FIXED:** Changed redirect to a relative path
-            window.location.href = 'login.html';
+            window.location.href = 'index.html';
         });
 
         // Modal Functions
