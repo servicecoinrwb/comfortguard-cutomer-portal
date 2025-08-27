@@ -365,16 +365,16 @@
                 
                 // Create user profile
                 if (data.user) {
-                    const { error: profileError } = await supabase
+                    const { error: updateError } = await supabase
                         .from('user_profiles')
-                        .insert({
-                            user_id: data.user.id,
-                            first_name: firstName,
-                            last_name: lastName
-                        });
-                    
-                    if (profileError) {
-                        console.error('Profile creation error:', profileError);
+                        .update({ 
+                            first_name: firstName, 
+                            last_name: lastName 
+                        })
+                        .eq('user_id', data.user.id); // This ensures we update the correct user
+
+                    if (updateError) {
+                        console.error('Error updating profile:', updateError);
                     }
                 }
                 
