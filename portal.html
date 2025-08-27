@@ -263,7 +263,7 @@
         // Check if user is already logged in
         supabase.auth.getUser().then(({ data: { user } }) => {
             if (user) {
-                window.location.href = '/portal.html';
+                window.location.href = 'portal.html';  // <-- Removed the leading slash
             }
         });
         
@@ -322,7 +322,7 @@
                 }
                 
                 // Redirect to portal
-                window.location.href = '/portal.html';
+                window.location.href = 'portal.html';  // <-- Removed the leading slash
                 
             } catch (error) {
                 showAlert(error.message || 'Login failed. Please try again.');
